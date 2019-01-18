@@ -20,15 +20,15 @@ args = parser.parse_args()
 
 # Function Defs
 def rand_ipv4():
-    print socket.inet_ntoa(struct.pack('>I', random.randint(1, 0xffffffff)))
+    return socket.inet_ntoa(struct.pack('>I', random.randint(1, 0xffffffff)))
     
 def rand_ipv6():
-    print socket.inet_ntop(socket.AF_INET6, struct.pack('>QQ', getrandbits(64), getrandbits(64)))
+    return socket.inet_ntop(socket.AF_INET6, struct.pack('>QQ', getrandbits(64), getrandbits(64)))
 
 if __name__ == "__main__":
     if args.ipv4:
-        rand_ipv4()
+        print(rand_ipv4())
     elif args.ipv6:
-        rand_ipv6()
+        print(rand_ipv6())
     else:
-        rand_ipv4()
+        print(rand_ipv4())
