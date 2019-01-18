@@ -5,6 +5,8 @@
 
 # TO-DO:
 # create flag for generating multiple IPs (-n 10)
+# refactor first if check in main to check for null flags
+# as if not len(sys.argv) > 1
 
 import random, struct, socket, argparse
 from random import getrandbits
