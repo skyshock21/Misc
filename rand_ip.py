@@ -5,6 +5,7 @@
 
 # TO-DO:
 # create flag for generating multiple IPs (-n 10)
+# add_argument('-n', '--number', action='store', dest='number', type=int, default=1, help='number of IPs')
 # refactor first if check in main to check for null flags
 # as if not len(sys.argv) > 1
 
