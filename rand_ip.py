@@ -5,7 +5,6 @@
 
 # TO-DO:
 # create flag for generating multiple IPs (-n 10)
-# re-write functions for return vice print
 
 import random, struct, socket, argparse
 from random import getrandbits
