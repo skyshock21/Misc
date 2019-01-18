@@ -2,7 +2,6 @@
 #
 # rand_ip.py
 # A script to output random IP addresses
-# Built on Python 2.7
 
 # TO-DO:
 # create flag for generating multiple IPs (-n 10)
