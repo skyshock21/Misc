@@ -22,7 +22,7 @@ args = parser.parse_args()
 # Function Defs
 def rand_ipv4():
     return socket.inet_ntoa(struct.pack('>I', random.randint(1, 0xffffffff)))
-    
+
 def rand_ipv6():
     return socket.inet_ntop(socket.AF_INET6, struct.pack('>QQ', getrandbits(64), getrandbits(64)))
 
