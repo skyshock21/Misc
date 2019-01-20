@@ -10,7 +10,7 @@ In the directory where the script is stored run
 python rand_ip.py
 ```
 
-By default it will output an IPv4 address, and the flag -v6 will also output an IPv4 address.  If you want an IPv6 address, type
+By default it will output an IPv4 address, and the flag -v4 will also output an IPv4 address.  If you want an IPv6 address, type
 
 ```
 python rand_ip.py -v6
