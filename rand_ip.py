@@ -4,7 +4,7 @@
 # A script to output random IP addresses
 
 # TO-DO:
-# create flag for generating multiple IPs (-n 10)
+# create flag for generating multiple IPs (-n 10), insert loop logic into main()
 # add_argument('-n', '--number', action='store', dest='number', type=int, default=1, help='number of IPs')
 
 import random, struct, socket, argparse, sys
