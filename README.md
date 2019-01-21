@@ -21,7 +21,7 @@ If you wish to specify multiple addresses for output, use the -n flag and pass i
 ```
 python rand_ip.py -n 10
 python rand_ip.py -v6 -n 10
-python rand_ip.py -v4 -n18
+python rand_ip.py -v4 -n 18
 ```
 
 If running properly you should see random IP addresses returned in the format you specified.
