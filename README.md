@@ -1,6 +1,6 @@
 # Output Random IP address
 
-RandIP.py allows you to output a random IP address in either IPv4 or IPv6 format.  It can serve as a library to be imported as well.  
+The script rand_ip.py allows you to output a random IP address in either IPv4 or IPv6 format.  It can serve as a library to be imported as well.  
 
 ## Run Application
 
