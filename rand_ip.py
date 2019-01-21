@@ -3,7 +3,7 @@
 # rand_ip.py
 # A script to output random IP addresses
 # example usage:
-# python randint.py -n 10 -v6
+# python rand_int.py -n 10 -v6
 # outputs 10 random IPv6 addresses
 
 import random, struct, socket, argparse, sys
