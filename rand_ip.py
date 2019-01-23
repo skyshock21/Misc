@@ -2,20 +2,9 @@
 #
 # rand_ip.py
 # A script to output random IP addresses
-# example usage:
-# python rand_int.py -n 10 -v6
-# outputs 10 random IPv6 addresses
 
-import random, struct, socket, argparse, sys
+import random, struct, socket, argparse
 from random import getrandbits
-
-# CLI arguments
-parser = argparse.ArgumentParser(description='Returns a random IP address.')
-group = parser.add_mutually_exclusive_group()
-group.add_argument("-v4", "--ipv4", action="store_true")
-group.add_argument("-v6", "--ipv6", action="store_true")
-parser.add_argument("-n", "--number", type=int, help="Number of IPs to output")
-args = parser.parse_args()
 
 # Function Defs
 def rand_ipv4():
@@ -24,29 +13,31 @@ def rand_ipv4():
 def rand_ipv6():
     return socket.inet_ntop(socket.AF_INET6, struct.pack('>QQ', getrandbits(64), getrandbits(64)))
 
-# Main logic - Check if no arguments were passed, and output an ipv4 address (default)
-# if a value was specified as a flag -n, check if -v6 flag also passed and output -v6 format n times
-# if a value was specified as a flag -n, and -v6 flag not set, output -v4 format, n times
-# if no value was specified as -n, check if -v4 or -v6 flag were specified and output in that
-# respective format
-# if no flags specified, output a single v4 address (default) 
-if __name__ == "__main__":
-    if not len(sys.argv) > 1:
-        print(rand_ipv4())
-    elif args.number==0:
-        print("-n passed a zero, bailing")
-        exit()
-    elif args.number:
-        if args.ipv6:
-            for i in range(args.number):
-                print(rand_ipv6())
-        else:
-            for i in range(args.number):
-                print(rand_ipv4())
-    elif args.ipv6:
-        print(rand_ipv6())
-    elif args.ipv4:
-        print(rand_ipv4())
-    else:
-        print(rand_ipv4())
+# CLI arguments
+ex = '''example:
 
+python rand_ip.py
+python rand_ip.py -v6 -n 10'''
+parser = argparse.ArgumentParser(prog='rand_ip',
+                                description='Returns a random IP address.',
+                                epilog=ex,
+                                formatter_class=argparse.RawDescriptionHelpFormatter,
+                                )
+group = parser.add_mutually_exclusive_group()
+group.add_argument("-v4", "--ipv4", dest='func', action="store_const", const=rand_v4)
+group.add_argument("-v6", "--ipv6", dest='func', action="store_const", const=rand_v6)
+parser.add_argument("-n", 
+                    "--number", 
+                    type=int, 
+                    help="Number of IPs to output",
+                    default=1,
+                   )
+parser.set_defaults(func=rand_v4)
+args = parser.parse_args()
+
+def main():
+    for i in range(args.number):
+        print(args.func())
+
+if __name__ == "__main__":
+    main()
