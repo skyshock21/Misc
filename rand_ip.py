@@ -33,6 +33,9 @@ def rand_ipv6():
 if __name__ == "__main__":
     if not len(sys.argv) > 1:
         print(rand_ipv4())
+    elif args.number==0:
+        print("-n passed a zero, bailing")
+        exit()
     elif args.number:
         if args.ipv6:
             for i in range(args.number):
