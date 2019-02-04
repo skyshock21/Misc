@@ -3,7 +3,7 @@
 # rand_ip.py
 # A script to output random IP addresses
 
-import random, struct, socket, argparse
+import random, struct, socket, argparse, sys
 from random import getrandbits
 
 # Function Defs
@@ -40,4 +40,4 @@ def main():
         print(args.func())
 
 if __name__ == "__main__":
-    main()
+    sys.exit( main() )
