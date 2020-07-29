@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 #
 # rand_ip.py
 # A script to output random IP addresses
@@ -7,10 +7,10 @@ import random, struct, socket, argparse, sys
 from random import getrandbits
 
 # Function Defs
-def rand_ipv4():
+def rand_v4():
     return socket.inet_ntoa(struct.pack('>I', random.randint(1, 0xffffffff)))
 
-def rand_ipv6():
+def rand_v6():
     return socket.inet_ntop(socket.AF_INET6, struct.pack('>QQ', getrandbits(64), getrandbits(64)))
 
 # CLI arguments
